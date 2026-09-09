@@ -184,6 +184,7 @@ section.feature.alt { background: var(--surface); }
 }
 .row.flip { grid-template-columns: 300px 1fr; }
 .row.flip.sample { grid-template-columns: 380px 1fr; }
+.row.ruler       { grid-template-columns: 1fr 380px; }
 .row.flip .copy { order: 2; }
 .row.flip .shot { order: 1; }
 
@@ -328,10 +329,11 @@ footer.site a:hover { color: var(--emerald-dark); }
   .row { grid-template-columns: 1fr 260px; gap: 34px; }
   .row.flip { grid-template-columns: 260px 1fr; }
   .row.flip.sample { grid-template-columns: 300px 1fr; }
+  .row.ruler { grid-template-columns: 1fr 300px; }
 }
 
 @media (max-width: 780px) {
-  .row, .row.flip, .row.flip.sample { grid-template-columns: 1fr; gap: 28px; }
+  .row, .row.flip, .row.flip.sample, .row.ruler { grid-template-columns: 1fr; gap: 28px; }
   .row.flip .copy { order: 1; }
   .row.flip .shot { order: 2; }
   .row .shot { max-width: 265px; margin: 0 auto; }
