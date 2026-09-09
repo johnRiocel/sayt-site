@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Documentation — Sayt</title>
+<meta name="description" content="A complete technical and functional description of Sayt: how it turns a site walk into a finished report, what it records, how it measures, and why it never sends your data anywhere.">
+<link rel="canonical" href="https://sayt-app.store/docs.html">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/logo.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="index.html">
+        <img src="assets/img/logo.png" alt="" width="32" height="32">
+        <span>Sayt</span>
+      </a>
+      <span class="links">
+        <a href="index.html">Home</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a class="cta" href="https://testflight.apple.com/join/43Gb7vnf" rel="noopener noreferrer">Get the beta</a>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="narrow">
+
+  <p class="eyebrow">Whitepaper</p>
+  <h1>Sayt: turning the site visit into the report</h1>
+  <p class="lede">A complete description of what Sayt records, how it produces a
+  report, and the design decisions behind a documentation tool that never sends
+  your work anywhere.</p>
+  <p class="updated">Version 1.1 · TestFlight beta · Last updated 9 September 2026</p>
+
+  <div class="callout">
+    <p><strong>Abstract.</strong> Site professionals do not get paid for walking
+    a site. They get paid for the document that comes out of it. Yet the
+    document is almost always produced <em>after</em> the visit, from photographs
+    stripped of context, notes written in a hurry, and memory. Sayt inverts that
+    order: it captures each finding in the structure a report needs — location,
+    description, severity, dimensions, position on the plan — so the report is a
+    by-product of the walk rather than a second job that evening. Everything runs
+    on the device. There is no account, no server and no analytics.</p>
+  </div>
+
+  <p><strong>Who this is for.</strong> Anyone whose day ends with a report:
+  site and junior engineers, civil and structural engineers, QA/QC checkers,
+  foremen, site supervisors and construction managers, architects, safety
+  officers, health, sanitary, food safety and fire inspectors, and property
+  inspectors and insurance adjusters. Eighteen role profiles change the
+  categories, the document title and the wording of the report — see
+  <a href="#reference">§4.11</a>.</p>
+
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#problem">1. The problem</a></li>
+    <li><a href="#principles">2. Design principles</a></li>
+    <li><a href="#workflow">3. The workflow</a></li>
+    <li><a href="#reference">4. Feature reference</a></li>
+    <li><a href="#report">5. The report</a></li>
+    <li><a href="#privacy">6. Data, privacy and security</a></li>
+    <li><a href="#tiers">7. Free and Pro</a></li>
+    <li><a href="#limits">8. Requirements and known limits</a></li>
+  </ul>
+
+  <!-- 1 --------------------------------------------------------------- -->
+  <h2 id="problem">1. The problem</h2>
+
+  <p>A typical site visit produces forty to two hundred photographs, a handful of
+  measurements, and a set of judgements that exist only in the inspector's head
+  while they are standing in front of the thing being judged. The report is
+  assembled hours or days later.</p>
+
+  <p>Three costs follow from that gap:</p>
+
+  <ul>
+    <li><strong>Context decays.</strong> A photograph of a crack does not record
+    which unit it was in, how long it was, or whether it was worse than last
+    month. That information was available on site and was not captured.</li>
+    <li><strong>Work is done twice.</strong> The finding is described once
+    verbally or in a note, then again in the report, then often a third time in
+    an email to the contractor.</li>
+    <li><strong>The report is the bottleneck.</strong> Reporting is unpaid
+    overtime for many practitioners, and the delay between visit and report is
+    the delay before anything on site actually gets fixed.</li>
+  </ul>
+
+  <p>Sayt's thesis is narrow: if the capture step is structured correctly, the
+  report requires no writing at all.</p>
+
+  <!-- 2 --------------------------------------------------------------- -->
+  <h2 id="principles">2. Design principles</h2>
+
+  <h3>2.1 Capture in report shape</h3>
+  <p>Every photograph in Sayt is attached to a finding, and every finding carries
+  the fields a report section needs: a location, a description, a type, an
+  optional category, optional measurements, and an optional position on the floor
+  plan. Nothing is a loose image in a camera roll.</p>
+
+  <h3>2.2 Local-first, not offline-tolerant</h3>
+  <p>Sayt is not an online product with an offline mode. There is no backend at
+  all. Basements, plant rooms, lift shafts and rural sites are ordinary working
+  conditions, and a tool that degrades without signal is not usable in them. The
+  only network path in the app is Apple's StoreKit, used to buy or restore Pro.</p>
+
+  <h3>2.3 Speak the reader's language</h3>
+  <p>A health inspector does not file "observations", they record findings and
+  violations. A safety officer records hazards. An adjuster documents damage
+  items. Sayt stores one underlying model and renders the vocabulary the
+  profession expects, so the output does not read as though it came from a
+  generic app.</p>
+
+  <h3>2.4 State uncertainty honestly</h3>
+  <p>Camera measurements are estimates. Sayt marks them with <strong>≈</strong>
+  everywhere they appear, including in the exported report, and carries the
+  disclaimer with them rather than hiding it in a settings screen. A number that
+  pretends to more precision than it has is worse than no number.</p>
+
+  <!-- 3 --------------------------------------------------------------- -->
+  <h2 id="workflow">3. The workflow</h2>
+
+  <ol>
+    <li><strong>Create the project</strong> once — client, site address, project
+    type — and optionally import the floor plans.</li>
+    <li><strong>Start a visit.</strong> Visits are numbered automatically per
+    project, so Visit #4 is unambiguous.</li>
+    <li><strong>Walk and capture.</strong> Photograph a finding, annotate it,
+    measure it, pin it to the plan, mark it positive, neutral or negative, and
+    promote it to a tracked issue if somebody has to act on it.</li>
+    <li><strong>Work the checklist</strong> if the visit is a repeat
+    inspection.</li>
+    <li><strong>Generate the report</strong> before leaving. Choose a format and
+    a template, preview it, export it.</li>
+    <li><strong>Schedule the next visit</strong> from the same screen.</li>
+  </ol>
+
+  <!-- 4 --------------------------------------------------------------- -->
+  <h2 id="reference">4. Feature reference</h2>
+
+  <h3>4.1 Projects</h3>
+  <p>A project holds a client, a site address, a project type, its floor plans,
+  its reusable checklist and all of its visits. Multiple plans are supported —
+  one per floor is the common case. Projects can be moved to Trash and restored
+  (Pro).</p>
+
+  <h3>4.2 Visits</h3>
+  <p>A visit is the unit of work and the unit of reporting. It is numbered
+  sequentially within its project, dated, and holds the photographs,
+  observations, issues and checklist results recorded that day.</p>
+
+  <h3>4.3 Photo capture and annotation</h3>
+  <p>Photographs are taken inside the visit, not imported afterwards. They can be
+  annotated with arrows, boxes and text, and given a quick note. A camera level
+  overlay helps square up elevation shots and can be turned off. Images are
+  written to the app's own storage on the device.</p>
+
+  <h3>4.4 Observations and issues</h3>
+  <p>An <strong>observation</strong> is something you saw. An <strong>issue</strong>
+  is something that has to be fixed and therefore has a life beyond this visit.
+  Observations are typed <em>positive</em>, <em>neutral</em> or <em>negative</em>
+  and may carry a location and a category. An observation can be promoted to an
+  issue, which then carries a status, a timeline of events across visits, and
+  verification photographs when it is re-checked — which is what makes a
+  follow-up report possible.</p>
+
+  <h3>4.5 Measurements</h3>
+  <p>Tap <strong>Measure</strong> on a finding to size it with the camera using
+  ARKit, or <strong>Enter measurement</strong> to type a figure you already know.
+  Measurements are stored against the finding, labelled, and carried into the
+  report.</p>
+  <ul>
+    <li><strong>Lengths</strong> — a single span such as a ceiling height or a
+    crack.</li>
+    <li><strong>Areas</strong> — chain segments and close the shape, and Sayt
+    reports the area it encloses.</li>
+    <li><strong>Units</strong> — metric or imperial, switched at any time. The
+    stored value never changes; only its presentation does, so a file exported in
+    one region reads correctly in another.</li>
+    <li><strong>Source</strong> — camera-derived values are annotated with
+    <strong>≈</strong>; manually entered values are not.</li>
+  </ul>
+  <p>On a device where ARKit world tracking is unavailable, the measure tool
+  falls back to manual entry rather than failing.</p>
+  <p><strong>LiDAR.</strong> Sayt detects LiDAR-equipped iPhones and enables
+  scene reconstruction, so the measurement is raycast against a mesh of the real
+  surface instead of an estimated plane. This is materially more accurate on
+  irregular surfaces — rubble, render, damaged masonry — where a flat-plane
+  estimate is wrong. LiDAR is not required; without it Sayt measures against
+  detected horizontal and vertical planes.</p>
+  <div class="callout">
+    <p><strong>Stated in the app, and worth repeating here:</strong> camera
+    measurements are digitally estimated and can vary by a few centimetres. Check
+    critical dimensions with a tape.</p>
+  </div>
+
+  <h3>4.6 Site plans and pinning</h3>
+  <p>Plans are imported per project, either with the document scanner or from
+  Photos, and stored as images on the device. Opening a finding shows the plan;
+  tapping it drops a pin at that point, and tapping again moves it. Pin positions
+  are stored proportionally, so they stay correct at any zoom or export size.
+  Sayt also reads text from the plan and can offer the nearest label as the
+  finding's location, which you accept or ignore.</p>
+
+  <h3>4.7 Checklists</h3>
+  <p>A project's checklist is authored once and reused by every visit. Each item
+  cycles <em>pending → OK → Fail → N/A</em>, takes a note, and can hold
+  photographs as evidence. Results appear in the report as a section.</p>
+
+  <h3>4.8 Calendar and scheduling</h3>
+  <p>The home screen shows a month calendar with the days you documented
+  something marked, and tapping a day shows what happened on it — which is how
+  you evidence progress to a client. Visits can be scheduled with a recurrence of
+  <em>daily</em>, <em>weekly</em>, <em>fortnightly</em> or <em>monthly</em>, an
+  end date, a note, and a reminder a chosen number of minutes beforehand.
+  Reminders are local notifications generated on the device.</p>
+
+  <h3>4.9 Punchlist OCR import <em>(Pro)</em></h3>
+  <p>Clients and head offices send punchlists as photographs, scans and printed
+  tables. Sayt scans or picks such an image, extracts the line items with Apple's
+  Vision framework <strong>entirely on the device</strong>, and shows them for
+  review. Numbered lists (<code>1.</code>, <code>1)</code>, <code>(1)</code>),
+  bulleted lists (<code>•</code>, <code>-</code>, <code>*</code>, <code>◦</code>)
+  and loose lines are all recognised, and detected column headers are separated
+  out so they are not imported as tasks. You confirm or edit each line, then send
+  them to the pre-visit checklist or import them as punchlist issues.</p>
+
+  <h3>4.10 Handoff</h3>
+  <p>A visit or a whole project can be exported as a single <code>.saytpack</code>
+  file containing a manifest and the photographs, and sent to a colleague by any
+  means you like. On import it merges rather than duplicates: projects are matched
+  by identity and then by name and address, visits and findings are matched by
+  identity, an already-imported visit is refused, and visit numbers are
+  renumbered locally to avoid collisions. Exporting handoff files is a Pro
+  capability.</p>
+
+  <h3>4.11 Professions and vocabulary</h3>
+  <p>Setting your profession changes the wording throughout the app and the
+  report. Eighteen profiles are available, including architect, project
+  architect, civil, structural, electrical, mechanical and sanitary engineer,
+  contractor, site supervisor, construction manager, health inspector, food
+  safety officer, sanitary inspector, fire marshal, safety officer, property
+  inspector and insurance adjuster.</p>
+
+  <div class="vocab">
+    <div><strong>Construction roles</strong><span>Site Inspection Report · Observations · Issues</span></div>
+    <div><strong>Health &amp; sanitation</strong><span>Health &amp; Sanitation Inspection Report · Findings · Violations</span></div>
+    <div><strong>Food safety</strong><span>Food Safety Inspection Report · Findings · Violations</span></div>
+    <div><strong>Fire</strong><span>Fire Safety Inspection Report · Findings · Violations</span></div>
+    <div><strong>Safety</strong><span>Safety Inspection Report · Observations · Hazards</span></div>
+    <div><strong>Property</strong><span>Property Condition Report · Condition Notes · Defects</span></div>
+    <div><strong>Insurance</strong><span>Loss Assessment Report · Damage Assessment · Damage Items</span></div>
+  </div>
+
+  <!-- 5 --------------------------------------------------------------- -->
+  <h2 id="report">5. The report</h2>
+
+  <p>This is the output the rest of the app exists to produce.</p>
+
+  <h3>5.1 Formats</h3>
+  <ul>
+    <li><strong>PDF</strong> — the recommended format; ready to send.</li>
+    <li><strong>DOCX</strong> — editable in Word or Pages, for practices that
+    must deliver on their own template. <em>Pro.</em></li>
+    <li><strong>Photos (ZIP)</strong> — the original images at full quality.</li>
+  </ul>
+
+  <h3>5.2 Templates</h3>
+  <ul>
+    <li><strong>Standard</strong> — balanced professional layout, the default.</li>
+    <li><strong>Executive</strong> — client-facing: larger photographs, softer
+    typography, technical detail rows hidden.</li>
+    <li><strong>Progress</strong> — photo-led progress documentation with minimal
+    text.</li>
+    <li><strong>Inspection</strong> — emphasises issues, follow-ups and
+    before/after evidence.</li>
+    <li><strong>Minimal</strong> — text-heavy architecture-office style, no
+    accent bars or cards.</li>
+    <li><strong>Punchlist table</strong> — compact numbered
+    <em>No. | Name | Description</em> table with one or two photographs per row,
+    matching typical QA/QC and DPWH tabulation.</li>
+  </ul>
+  <p>The standard template is free. The additional templates are unlocked with
+  Pro.</p>
+
+  <h3>5.3 Structure</h3>
+  <p>A generated report runs in this order: branded header, project and visit
+  details, measurements, observations, follow-up issues with their verification
+  evidence, new issues raised this visit, a visit summary, the pre-visit
+  checklist results, and a signature block.</p>
+
+  <h3>5.4 Branding</h3>
+  <p>The header and signature block are drawn from your professional profile —
+  logo, professional name, company, licence and PTR numbers, email, phone,
+  office address and signature image — and each element can be shown or hidden.
+  Page numbering is optional. Free reports carry a "Generated with Sayt"
+  attribution; Pro can turn it off.</p>
+
+  <!-- 6 --------------------------------------------------------------- -->
+  <h2 id="privacy">6. Data, privacy and security</h2>
+
+  <p>Sayt has no user accounts and no sign-up. It operates no server. Your
+  projects, visits, photographs, measurements, plans and reports are stored in
+  the app's own container on your iPhone and are protected by the device
+  passcode and iOS file protection.</p>
+
+  <ul>
+    <li><strong>No telemetry.</strong> There is no analytics SDK and no crash
+    reporting service in the app.</li>
+    <li><strong>No cloud sync.</strong> Nothing is uploaded. Moving to a new
+    phone is done through your own encrypted device backup, or by exporting
+    handoff files.</li>
+    <li><strong>OCR is on-device.</strong> Both punchlist import and plan text
+    recognition use Apple's Vision framework locally. No image is transmitted.</li>
+    <li><strong>Reports are rendered on-device</strong> using PDFKit and locally
+    generated Word XML. No document is uploaded to be converted.</li>
+    <li><strong>The one network path is StoreKit</strong> — Apple's own service —
+    used to fetch the Pro product, purchase it and restore it. Apple, not Sayt,
+    processes payment; Sayt never sees card details.</li>
+    <li><strong>Pro is verified locally</strong> against a device-bound signed
+    token, so entitlement checks work with no connection.</li>
+    <li><strong>Sharing is explicit.</strong> Data leaves the phone only when you
+    export a report or a <code>.saytpack</code> and choose where to send it.</li>
+  </ul>
+
+  <p>Full detail is in the <a href="privacy.html">Privacy Policy</a>.</p>
+
+  <!-- 7 --------------------------------------------------------------- -->
+  <h2 id="tiers">7. Free and Pro</h2>
+
+  <p>The free tier is a working tool, not a demo: capture, annotation, camera
+  measuring including areas, plan pinning, observations, issues, checklists, the
+  calendar, and PDF and Photos ZIP export are all included, limited to
+  <strong>three projects with five visits each</strong>.</p>
+
+  <p><strong>Sayt Pro</strong> is a one-time purchase — there is no subscription
+  and nothing renews — and adds unlimited projects and visits, DOCX export, the
+  four additional report templates, removal of the report watermark,
+  <code>.saytpack</code> handoff export, punchlist OCR import, saving site photos
+  to your photo library, and Trash with restore. Pricing will be announced when
+  Sayt reaches the App Store; during the TestFlight beta, purchases run through
+  Apple's sandbox and nothing is charged.</p>
+
+  <!-- 8 --------------------------------------------------------------- -->
+  <h2 id="limits">8. Requirements and known limits</h2>
+
+  <ul>
+    <li><strong>iOS 17 or later.</strong> iPhone and iPad.</li>
+    <li><strong>Camera measuring requires ARKit world tracking.</strong> Where it
+    is unavailable, the tool falls back to manual entry.</li>
+    <li><strong>Measurements are estimates,</strong> not survey-grade. See
+    §4.5.</li>
+    <li><strong>No multi-user collaboration.</strong> There is no shared team
+    workspace; collaboration is by exporting and importing handoff files.</li>
+    <li><strong>No automatic backup.</strong> Because there is no server, your
+    data's survival depends on your device backup.</li>
+    <li><strong>Beta builds expire</strong> 90 days after release. Install the
+    newest build from TestFlight; your data is unaffected.</li>
+  </ul>
+
+  <div class="callout">
+    <p><strong>Try it.</strong> Sayt is in open beta on TestFlight — no
+    invitation needed.</p>
+    <p class="mt-s"><a class="btn" href="https://testflight.apple.com/join/43Gb7vnf" rel="noopener noreferrer">Get Sayt on TestFlight</a></p>
+  </div>
+
+  <p class="note">This document describes Sayt 1.1 as released to the TestFlight
+  beta. Features described as Pro are gated in the shipping app. Questions or
+  corrections: <a href="mailto:cenon.johnriocel.p.0031@gmail.com?subject=Sayt%20documentation">cenon.johnriocel.p.0031@gmail.com</a></p>
+
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap inner">
+    <span>Sayt — See it. Document it. Track it.</span>
+    <span class="links">
+      <a href="index.html">Home</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
