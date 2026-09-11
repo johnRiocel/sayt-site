@@ -197,6 +197,59 @@ section.feature.alt { background: var(--surface); }
   background: #fff;
 }
 
+.report-carousel {
+  min-width: 0;
+}
+
+.report-nav {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 12px;
+  overflow-x: auto;
+  padding: 0 0 4px;
+  scrollbar-width: thin;
+}
+.report-nav a {
+  flex: 0 0 auto;
+  border: 1px solid var(--wash-line);
+  border-radius: 999px;
+  padding: 5px 11px;
+  background: var(--wash);
+  color: var(--emerald-dark);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.report-nav a:hover { background: #fff; }
+
+.report-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0;
+  padding: 0 0 10px;
+  scrollbar-width: thin;
+}
+.report-track:focus {
+  outline: 3px solid var(--wash-line);
+  outline-offset: 4px;
+  border-radius: 20px;
+}
+.report-slide {
+  flex: 0 0 100%;
+  margin: 0;
+  scroll-snap-align: center;
+}
+.report-caption {
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
 .row .copy p { margin: 0 0 14px; }
 
 .ticks { list-style: none; padding: 0; margin: 18px 0 0; }
