@@ -19,6 +19,14 @@ No JavaScript, no external requests, no trackers. Every page sets a strict
 `Content-Security-Policy` that permits only same-origin styles, images and
 media, so there is nothing for a third party to inject or observe.
 
+One caveat on that policy: it is delivered in a `<meta>` tag, and the CSP
+spec requires browsers to **ignore** `frame-ancestors` when it arrives that
+way (Chrome logs exactly that). GitHub Pages cannot set response headers, so
+the site can still be framed by another origin. There is no login and no
+state-changing control here, so the risk is limited to a clickjacking overlay
+around the download link. Putting Cloudflare in front of the domain and
+injecting `X-Frame-Options: DENY` is the fix if that ever matters.
+
 Because that policy sets `style-src 'self'`, inline `style` attributes are
 blocked. Spacing has to come from classes in `assets/style.css` — the `.mt-s`,
 `.mt-m` and `.mt-l` utilities exist for that reason.
