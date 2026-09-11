@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Team mode — Sayt site reports across a crew</title>
+<meta name="description" content="How Sayt Team mode lets a supervisor merge visits from several phones into one offline job using a shared team code, with no server, account, sign-up or upload.">
+<link rel="canonical" href="https://sayt-app.store/team.html">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/logo.png">
+<meta name="theme-color" content="#0F172A">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<!-- Open Graph (Facebook, LinkedIn, Messenger, WhatsApp) -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sayt">
+<meta property="og:locale" content="en_PH">
+<meta property="og:title" content="Team mode — Sayt site reports across a crew">
+<meta property="og:description" content="Run one job across several phones with a shared team code. Offline, local-first, no account and no server.">
+<meta property="og:url" content="https://sayt-app.store/team.html">
+<meta property="og:image" content="https://sayt-app.store/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sayt — stop writing site reports after the visit">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Team mode — Sayt site reports across a crew">
+<meta name="twitter:description" content="Run one job across several phones with a shared team code. Offline, local-first, no account and no server.">
+<meta name="twitter:image" content="https://sayt-app.store/assets/img/og-cover.png">
+<meta name="twitter:image:alt" content="Sayt — stop writing site reports after the visit">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Team mode — Sayt",
+  "description": "How Sayt Team mode merges visits from several phones into one offline job using a shared team code.",
+  "url": "https://sayt-app.store/team.html",
+  "inLanguage": "en",
+  "image": "https://sayt-app.store/assets/img/og-cover.png",
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "Sayt",
+    "@id": "https://sayt-app.store/#app"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sayt",
+    "@id": "https://sayt-app.store/#org"
+  }
+}
+</script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="index.html">
+        <img src="assets/img/logo.png" alt="" width="32" height="32">
+        <span>Sayt</span>
+      </a>
+      <span class="links">
+        <a href="index.html">Home</a>
+        <a href="team.html">Team</a>
+        <a href="docs.html">Docs</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a class="cta" href="https://testflight.apple.com/join/43Gb7vnf" rel="noopener noreferrer">Get the beta</a>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/img/logo.png" alt="Sayt app icon" width="84" height="84">
+    <p class="eyebrow">Team mode</p>
+    <h1>One site report<br> from the whole crew</h1>
+    <p class="lede">Run one job across several phones without a server, account or sign-up. Everyone types the same team code, records their own visit, then sends the visit back as a <code>.saytpack</code> file.</p>
+    <div class="btn-row">
+      <a class="btn" href="https://testflight.apple.com/join/43Gb7vnf" rel="noopener noreferrer">Get the beta on TestFlight</a>
+      <a class="btn ghost" href="#code">How the code works</a>
+    </div>
+    <p class="sub">Local-first · Offline · iPhone and Android · No account needed</p>
+  </div>
+</section>
+
+<section class="feature" id="problem">
+  <div class="wrap narrow">
+    <p class="eyebrow">The problem</p>
+    <h2>Five phones can accidentally become five jobs</h2>
+    <p>Sayt merges visits into a project by its id. A crew's visits only come back into one job if everyone's copy of that job shares the same id.</p>
+    <p>Before Team mode, the supervisor had to export the project file and send it round before anyone started. Miss that step and five people could produce five separate jobs. Those visits could not be reported on together.</p>
+    <p>Team mode gives the crew one shared id without sending a project file first.</p>
+  </div>
+</section>
+
+<section class="feature alt" id="code">
+  <div class="wrap narrow">
+    <p class="eyebrow">Team codes</p>
+    <h2>The code is the job</h2>
+    <p>The supervisor picks words the crew can remember, for example <code>paddle arch 2026</code>. Everyone opens Project Settings and types the same words.</p>
+    <p>The same words resolve to the same job on every device, offline. Nothing is shared except the words themselves. The code is never sent anywhere. It is hashed on the device.</p>
+    <ul class="ticks">
+      <li>No server</li>
+      <li>No account</li>
+      <li>No sign-up</li>
+      <li>Nothing uploaded</li>
+      <li>Minimum 4 characters</li>
+      <li>Works across iPhone and Android</li>
+    </ul>
+    <p>Case and punctuation do not matter. <code>Paddle Arch 2026</code>, <code>paddle-arch-2026</code> and <code>PADDLE ARCH 2026</code> are one job.</p>
+  </div>
+</section>
+
+<section class="feature" id="handoff">
+  <div class="wrap narrow">
+    <p class="eyebrow">Sending a visit in</p>
+    <h2>Each person records the visit as normal</h2>
+    <p>The engineer, architect, QA/QC checker or supervisor walks the site on their own phone. Photos, observations, issues, measurements and plan pins are recorded the usual way.</p>
+    <p>When the visit is ready, they share a <code>.saytpack</code> handoff file. Use AirDrop, email, WhatsApp, Drive or whatever the site already uses. The supervisor opens the file in Sayt and the visit lands in the shared job, tagged with who sent it.</p>
+    <p class="note">Importing a handoff file is a Sayt Pro feature.</p>
+  </div>
+</section>
+
+<section class="feature alt" id="team-screen">
+  <div class="wrap">
+    <p class="eyebrow">The Team screen</p>
+    <h2>See what came back</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Job code</h3>
+        <p>Shows the team code for the job, so the supervisor can check what the crew should type.</p>
+      </div>
+      <div class="card">
+        <h3>Share the job</h3>
+        <p>Send the job details to someone else without making them create an account.</p>
+      </div>
+      <div class="card">
+        <h3>Batch import</h3>
+        <p>Take in several <code>.saytpack</code> files at once, not one visit at a time.</p>
+      </div>
+      <div class="card">
+        <h3>Who sent what</h3>
+        <p>Show which person sent each visit, and what has landed in the shared job.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feature" id="reports">
+  <div class="wrap narrow">
+    <p class="eyebrow">Group reports</p>
+    <h2>One report for the crew's work</h2>
+    <p>Pick a week or any date range. Sayt builds one report spanning all the visits in that period.</p>
+    <p>In a group report, every observation and every issue says who recorded it. The reader can see which engineer, architect, checker or supervisor saw each item.</p>
+    <p>A solo report does not repeat the name on every card, because the name is already on the letterhead.</p>
+    <ul class="ticks">
+      <li>Weekly reports for this week, last week or any week you choose</li>
+      <li>Custom-range reports for any start and end date</li>
+      <li>Every visit in the range, renumbered into one document</li>
+      <li>Every observation and issue labelled with the person who recorded it</li>
+      <li>The same report templates and preview used for solo visits</li>
+    </ul>
+    <p class="note">Free users get ten weekly reports and ten custom-range reports. Sayt Pro removes the limit.</p>
+  </div>
+</section>
+
+<section class="feature alt" id="local-first">
+  <div class="wrap narrow">
+    <p class="eyebrow">Local-first</p>
+    <h2>Team mode does not add a backend</h2>
+    <p>Sayt stays offline. There is no shared cloud workspace, no login and no dashboard. The team code is hashed on each phone. Visits move only when a person chooses to share a <code>.saytpack</code> file.</p>
+    <p>That is why it still works in basements, plant rooms, rural sites and any job where signal is bad.</p>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap inner">
+    <span>Sayt — See it. Document it. Track it.</span>
+    <span class="links">
+      <a href="index.html">Home</a>
+      <a href="team.html">Team</a>
+      <a href="docs.html">Docs</a>
+      <a href="support.html">Support</a>
+      <a href="index.html#feedback">Feedback</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
