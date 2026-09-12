@@ -32,7 +32,7 @@
  */
 
 // ---- Configure these two lines ----
-const OWNER_EMAIL = 'you@example.com'; // where sign-up notifications go
+const OWNER_EMAIL = 'saytapph@gmail.com'; // where sign-up notifications go
 const PLAY_INVITE_URL = 'https://play.google.com/apps/testing/YOUR_PACKAGE_ID'; // Play Console opt-in link, once you have one
 // ------------------------------------
 
