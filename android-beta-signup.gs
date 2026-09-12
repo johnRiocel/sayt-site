@@ -92,6 +92,12 @@ function setupEverything() {
 }
 
 function onFormSubmit(e) {
+  if (!e) {
+    Logger.log('No form submission data found. Creating the Form now instead.');
+    setupEverything();
+    return;
+  }
+
   const email = extractEmail_(e);
   if (!email || !isValidEmail_(email)) {
     return; // ignore junk or missing submissions silently
