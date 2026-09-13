@@ -187,7 +187,7 @@ function notifyOwner_(email) {
  * mailed twice.
  *
  * Use it like this:
- *   1. In Play Console, create your closed test and add the tester emails
+ *   1. In Play Console, open your active test and add the tester emails
  *      (run exportEmailListForPlayConsole below to get them in one block).
  *   2. Copy the opt-in link Play gives you into PLAY_INVITE_URL at the
  *      top of this file, and save.
@@ -262,7 +262,7 @@ function sendPendingInvites() {
 /**
  * Optional helper — run manually any time from the script editor to get a
  * newline-separated list of every tester email, ready to paste straight
- * into Play Console → Testing → Closed testing → Testers list.
+ * into Play Console → Testing → your active test → Testers list.
  * Output appears in View → Logs (or Execution log).
  */
 function exportEmailListForPlayConsole() {
