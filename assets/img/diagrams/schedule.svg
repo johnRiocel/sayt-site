@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400" role="img" aria-labelledby="scheduleTitle">
+<title id="scheduleTitle">Diagram of scheduling a repeating visit with a local reminder</title>
+<rect x="1" y="1" width="698" height="398" rx="20" fill="#fff" stroke="#E5E7EB"/>
+
+<!-- mini calendar -->
+<rect x="40" y="50" width="270" height="300" rx="16" fill="#F9FAFB" stroke="#E5E7EB"/>
+<text x="60" y="82" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#0B1220">September</text>
+<g font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="11" fill="#9CA3AF">
+  <text x="60" y="105">S</text><text x="93" y="105">M</text><text x="126" y="105">T</text>
+  <text x="159" y="105">W</text><text x="192" y="105">T</text><text x="225" y="105">F</text><text x="258" y="105">S</text>
+</g>
+<!-- grid of day cells, 4 rows x 7 -->
+<g>
+  <!-- row 1 -->
+  <rect x="52" y="115" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="85" y="115" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="118" y="115" width="26" height="26" rx="6" fill="#059669"/>
+  <rect x="151" y="115" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="184" y="115" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="217" y="115" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="250" y="115" width="26" height="26" rx="6" fill="#fff"/>
+  <!-- row 2 -->
+  <rect x="52" y="150" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="85" y="150" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="118" y="150" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="151" y="150" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="184" y="150" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="217" y="150" width="26" height="26" rx="6" fill="#059669"/>
+  <rect x="250" y="150" width="26" height="26" rx="6" fill="#fff"/>
+  <!-- row 3 -->
+  <rect x="52" y="185" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="85" y="185" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="118" y="185" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="151" y="185" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="184" y="185" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="217" y="185" width="26" height="26" rx="6" fill="#fff"/>
+  <rect x="250" y="185" width="26" height="26" rx="6" fill="#ECFDF5" stroke="#059669" stroke-width="2" stroke-dasharray="3 2"/>
+</g>
+<text x="60" y="245" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#059669" font-weight="600">● Documented visit</text>
+<text x="60" y="265" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#059669" font-weight="600">◌ Next scheduled visit</text>
+
+<rect x="52" y="290" width="240" height="42" rx="10" fill="#ECFDF5" stroke="#A7F3D0"/>
+<!-- bell icon -->
+<path d="M62 306 a6 7 0 0 1 12 0 c0 5 2 7 3 8 h-18 c1 -1 3 -3 3 -8 z" fill="none" stroke="#0B1220" stroke-width="1.6"/>
+<circle cx="68" cy="317" r="1.6" fill="#0B1220"/>
+<text x="82" y="316" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#0B1220" font-weight="600">Reminder 60 min before</text>
+
+<!-- recurrence options -->
+<text x="345" y="82" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#6B7280" letter-spacing="0.06em">RECURRENCE</text>
+
+<rect x="345" y="100" width="120" height="42" rx="10" fill="#fff" stroke="#E5E7EB"/>
+<text x="362" y="126" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" fill="#374151">One-off</text>
+
+<rect x="480" y="100" width="120" height="42" rx="10" fill="#ECFDF5" stroke="#059669" stroke-width="2"/>
+<text x="500" y="126" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" fill="#059669" font-weight="700">Weekly</text>
+
+<rect x="345" y="152" width="120" height="42" rx="10" fill="#fff" stroke="#E5E7EB"/>
+<text x="362" y="178" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" fill="#374151">Daily</text>
+
+<rect x="480" y="152" width="120" height="42" rx="10" fill="#fff" stroke="#E5E7EB"/>
+<text x="495" y="178" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" fill="#374151">Fortnightly</text>
+
+<rect x="345" y="204" width="120" height="42" rx="10" fill="#fff" stroke="#E5E7EB"/>
+<text x="360" y="230" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" fill="#374151">Monthly</text>
+
+<rect x="345" y="270" width="255" height="60" rx="10" fill="#F9FAFB" stroke="#E5E7EB"/>
+<text x="360" y="292" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#0B1220">Note: check rebar cover before</text>
+<text x="360" y="310" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#0B1220">pour on the north wall</text>
+</svg>

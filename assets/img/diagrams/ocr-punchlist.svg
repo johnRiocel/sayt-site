@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400" role="img" aria-labelledby="ocrTitle">
+<title id="ocrTitle">Diagram of a photographed punchlist being scanned and extracted into an editable digital list</title>
+<rect x="1" y="1" width="698" height="398" rx="20" fill="#fff" stroke="#E5E7EB"/>
+
+<!-- source photo -->
+<rect x="40" y="60" width="230" height="280" rx="14" fill="#F9FAFB" stroke="#E5E7EB"/>
+<text x="55" y="85" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" font-weight="700" fill="#6B7280" letter-spacing="0.06em">PHOTOGRAPHED PUNCHLIST</text>
+<g font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12.5" fill="#374151">
+  <text x="60" y="115">1. Patch spalled column base</text>
+  <text x="60" y="140">2. Re-grout bathroom tiles</text>
+  <text x="60" y="165">3. Replace cracked window pane</text>
+  <text x="60" y="190">4. Touch up ceiling paint</text>
+  <text x="60" y="215">5. Fix leaking valve, unit 4B</text>
+</g>
+<rect x="55" y="240" width="200" height="1" fill="#E5E7EB"/>
+<text x="60" y="260" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#9CA3AF">— slightly skewed scan, printed table —</text>
+
+<!-- scan arrow -->
+<line x1="285" y1="200" x2="345" y2="200" stroke="#059669" stroke-width="3"/>
+<polygon points="345,200 331,192 331,208" fill="#059669"/>
+<text x="288" y="185" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#059669" font-weight="700">SCAN</text>
+<text x="283" y="225" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10" fill="#6B7280">on-device OCR</text>
+
+<!-- extracted list -->
+<rect x="360" y="60" width="300" height="280" rx="14" fill="#ECFDF5" stroke="#A7F3D0"/>
+<text x="378" y="85" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" font-weight="700" fill="#059669" letter-spacing="0.06em">EXTRACTED &amp; EDITABLE</text>
+
+<g font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12.5" fill="#0B1220">
+  <rect x="378" y="100" width="14" height="14" rx="3" fill="#fff" stroke="#A7F3D0"/>
+  <text x="400" y="112">Patch spalled column base</text>
+
+  <rect x="378" y="128" width="14" height="14" rx="3" fill="#fff" stroke="#A7F3D0"/>
+  <text x="400" y="140">Re-grout bathroom tiles</text>
+
+  <rect x="378" y="156" width="14" height="14" rx="3" fill="#fff" stroke="#A7F3D0"/>
+  <text x="400" y="168">Replace cracked window pane</text>
+
+  <rect x="378" y="184" width="14" height="14" rx="3" fill="#fff" stroke="#A7F3D0"/>
+  <text x="400" y="196">Touch up ceiling paint</text>
+
+  <rect x="378" y="212" width="14" height="14" rx="3" fill="#fff" stroke="#A7F3D0"/>
+  <text x="400" y="224">Fix leaking valve, unit 4B</text>
+</g>
+
+<rect x="378" y="250" width="264" height="34" rx="10" fill="#fff" stroke="#A7F3D0"/>
+<text x="392" y="272" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#374151">Send to Checklist · Import as Issues</text>
+</svg>

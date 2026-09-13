@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400" role="img" aria-labelledby="handoffTitle">
+<title id="handoffTitle">Diagram of a .saytpack file being exported from one phone and merged into another without duplicating data</title>
+<rect x="1" y="1" width="698" height="398" rx="20" fill="#fff" stroke="#E5E7EB"/>
+
+<!-- Phone A -->
+<rect x="60" y="70" width="140" height="260" rx="24" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="3"/>
+<rect x="75" y="95" width="110" height="180" rx="8" fill="#fff" stroke="#E5E7EB"/>
+<text x="90" y="118" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#6B7280">CAMAYA RESIDENCE</text>
+<rect x="90" y="130" width="80" height="10" rx="3" fill="#E5E7EB"/>
+<rect x="90" y="148" width="80" height="10" rx="3" fill="#E5E7EB"/>
+<rect x="90" y="166" width="60" height="10" rx="3" fill="#E5E7EB"/>
+<circle cx="130" cy="210" r="22" fill="#ECFDF5" stroke="#A7F3D0"/>
+<!-- box icon -->
+<rect x="118" y="200" width="24" height="18" rx="1" fill="none" stroke="#059669" stroke-width="2"/>
+<path d="M118 200 L130 211 L142 200" fill="none" stroke="#059669" stroke-width="2"/>
+<text x="100" y="300" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#374151" font-weight="600">You</text>
+
+<!-- transfer -->
+<rect x="255" y="165" width="190" height="50" rx="12" fill="#ECFDF5" stroke="#A7F3D0"/>
+<text x="272" y="184" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" font-weight="700" fill="#059669">visit-4.saytpack</text>
+<text x="272" y="202" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="10.5" fill="#6B7280">manifest + photos, sent any way</text>
+
+<line x1="200" y1="190" x2="253" y2="190" stroke="#059669" stroke-width="3"/>
+<polygon points="253,190 239,182 239,198" fill="#059669"/>
+<line x1="500" y1="190" x2="447" y2="190" stroke="#059669" stroke-width="3"/>
+<polygon points="500,190 486,182 486,198" fill="#059669"/>
+
+<!-- Phone B -->
+<rect x="500" y="70" width="140" height="260" rx="24" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="3"/>
+<rect x="515" y="95" width="110" height="180" rx="8" fill="#fff" stroke="#E5E7EB"/>
+<text x="530" y="118" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#6B7280">CAMAYA RESIDENCE</text>
+<rect x="530" y="130" width="80" height="10" rx="3" fill="#E5E7EB"/>
+<rect x="530" y="148" width="80" height="10" rx="3" fill="#E5E7EB"/>
+<rect x="530" y="166" width="60" height="10" rx="3" fill="#E5E7EB"/>
+<rect x="530" y="190" width="80" height="10" rx="3" fill="#A7F3D0"/>
+<text x="615" y="199" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="9" fill="#059669" font-weight="700">NEW</text>
+<text x="540" y="300" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#374151" font-weight="600">Colleague</text>
+
+<text x="255" y="255" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="12" fill="#0B1220" font-weight="700">Merges by identity</text>
+<text x="255" y="275" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="11" fill="#6B7280">Duplicate visits refused ·</text>
+<text x="255" y="292" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="11" fill="#6B7280">numbers renumbered locally</text>
+</svg>

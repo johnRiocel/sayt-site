@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400" role="img" aria-labelledby="annotateTitle">
+<title id="annotateTitle">Diagram of a photo annotated with a red box, an arrow and a text note</title>
+<rect x="1" y="1" width="698" height="398" rx="20" fill="#fff" stroke="#E5E7EB"/>
+
+<!-- Photo frame -->
+<rect x="40" y="40" width="380" height="320" rx="14" fill="#F9FAFB" stroke="#E5E7EB"/>
+<!-- suggested wall crack scene -->
+<rect x="60" y="60" width="340" height="280" rx="8" fill="#EEF2F1"/>
+<path d="M110 320 L150 220 L140 180 L175 120" fill="none" stroke="#CBD5C9" stroke-width="4" stroke-linecap="round"/>
+
+<!-- annotation box around the crack -->
+<rect x="105" y="110" width="90" height="220" rx="6" fill="none" stroke="#DC2626" stroke-width="3" stroke-dasharray="2 0"/>
+
+<!-- arrow pointing at box -->
+<line x1="300" y1="100" x2="205" y2="150" stroke="#DC2626" stroke-width="3"/>
+<polygon points="205,150 222,146 214,163" fill="#DC2626"/>
+
+<!-- Note card -->
+<rect x="450" y="70" width="210" height="130" rx="14" fill="#ECFDF5" stroke="#A7F3D0"/>
+<text x="470" y="100" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#059669" letter-spacing="0.06em">NOTE</text>
+<text x="470" y="128" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" fill="#0B1220">Hairline crack,</text>
+<text x="470" y="148" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" fill="#0B1220">north wall —</text>
+<text x="470" y="168" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" fill="#0B1220">monitor next visit</text>
+
+<!-- tool row -->
+<rect x="450" y="230" width="210" height="46" rx="10" fill="#fff" stroke="#E5E7EB"/>
+<circle cx="475" cy="253" r="9" fill="#DC2626"/>
+<text x="492" y="258" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" fill="#374151">Box</text>
+<line x1="540" y1="243" x2="560" y2="263" stroke="#DC2626" stroke-width="3"/>
+<polygon points="560,263 568,260 561,270" fill="#DC2626"/>
+<text x="580" y="258" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" fill="#374151">Arrow</text>
+
+<rect x="450" y="286" width="210" height="46" rx="10" fill="#fff" stroke="#E5E7EB"/>
+<rect x="470" y="300" width="18" height="18" rx="4" fill="#059669"/>
+<text x="500" y="313" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" fill="#374151">Text label</text>
+<text x="580" y="313" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="13" fill="#6B7280">+ note</text>
+</svg>
