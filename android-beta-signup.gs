@@ -27,13 +27,21 @@
  * future submission is handled automatically. You never need to touch
  * Google Forms' own editor UI at all.
  *
+ * SENDING THE PLAY INVITE (repeat whenever new people sign up):
+ *   1. Run "exportEmailListForPlayConsole" and copy the block it logs.
+ *   2. Paste it into Play Console → Testing → your test → Testers, and
+ *      save. Play does NOT email anyone at this point.
+ *   3. Run "sendPendingInvites". It emails the opt-in link to everyone
+ *      who has not been invited yet and stamps the "Invited at" column,
+ *      so running it again later only mails the new sign-ups.
+ *
  * Nothing here needs a server, API key or paid Google Workspace account —
  * it runs entirely inside your own free Google account.
  */
 
 // ---- Configure these two lines ----
 const OWNER_EMAIL = 'saytapph@gmail.com'; // where sign-up notifications go
-const PLAY_INVITE_URL = 'https://play.google.com/apps/testing/YOUR_PACKAGE_ID'; // Play Console opt-in link, once you have one
+const PLAY_INVITE_URL = 'https://play.google.com/apps/internaltest/4700937284727720274'; // Play Console opt-in link
 // ------------------------------------
 
 const SHEET_NAME = 'Testers';
@@ -108,7 +116,7 @@ function onFormSubmit(e) {
     return; // don't re-notify or duplicate on repeat sign-ups
   }
 
-  sheet.appendRow([new Date(), email]);
+  sheet.appendRow([new Date(), email, '']);
   notifySigner_(email);
   notifyOwner_(email);
 }
@@ -142,7 +150,7 @@ function getOrCreateTestersSheet_(ssParam) {
   let sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
-    sheet.appendRow(['Signed up at', 'Email']);
+    sheet.appendRow(['Signed up at', 'Email', 'Invited at']);
   }
   return sheet;
 }
@@ -156,12 +164,11 @@ function notifySigner_(email) {
   const subject = "You're on the list for Sayt's Android beta";
   const body =
     "Thanks for signing up to test Sayt on Android.\n\n" +
-    "Once a build is ready, you'll get a separate email with a Google Play " +
-    "link to join closed testing and install the app.\n\n" +
-    (PLAY_INVITE_URL.indexOf('YOUR_PACKAGE_ID') === -1
-      ? "You can also open this Play Console opt-in link now (it won't do " +
-        "anything until testing opens): " + PLAY_INVITE_URL + "\n\n"
-      : '') +
+    "Your email is on the list. Once it has been added on the Google Play " +
+    "side, you'll get a second email with the link that lets you install " +
+    "Sayt from Play.\n\n" +
+    "One thing that matters: use the same Google account on your phone that " +
+    "you signed up with, otherwise Play will not show you the test.\n\n" +
     "No action needed on your end for now — just watch your inbox.";
   MailApp.sendEmail(email, subject, body);
 }
@@ -172,6 +179,84 @@ function notifyOwner_(email) {
     'New Sayt Android beta sign-up',
     'New tester email: ' + email
   );
+}
+
+/**
+ * Emails the Google Play opt-in link to everyone on the list who has not
+ * been invited yet, then stamps the "Invited at" column so nobody is
+ * mailed twice.
+ *
+ * Use it like this:
+ *   1. In Play Console, create your closed test and add the tester emails
+ *      (run exportEmailListForPlayConsole below to get them in one block).
+ *   2. Copy the opt-in link Play gives you into PLAY_INVITE_URL at the
+ *      top of this file, and save.
+ *   3. Select "sendPendingInvites" in the function dropdown and click Run.
+ *
+ * Safe to run again later — it only mails people added since last time,
+ * so new sign-ups get the link without you tracking who is new.
+ *
+ * Note: a free Gmail account can send about 100 emails a day. If the list
+ * is longer than the remaining quota, this stops cleanly and tells you how
+ * many are left; just run it again tomorrow.
+ */
+function sendPendingInvites() {
+  if (PLAY_INVITE_URL.indexOf('YOUR_PACKAGE_ID') !== -1) {
+    Logger.log('Set PLAY_INVITE_URL at the top of this file first, then run this again.');
+    return;
+  }
+
+  const sheet = getOrCreateTestersSheet_();
+  if (String(sheet.getRange(1, 3).getValue()).trim() === '') {
+    sheet.getRange(1, 3).setValue('Invited at'); // sheets made before this column existed
+  }
+
+  const lastRow = sheet.getLastRow();
+  if (lastRow < 2) {
+    Logger.log('No testers on the list yet.');
+    return;
+  }
+
+  const rows = sheet.getRange(2, 1, lastRow - 1, 3).getValues();
+  let sent = 0;
+  let skipped = 0;
+  let remainingAfterQuota = 0;
+
+  for (let i = 0; i < rows.length; i++) {
+    const email = String(rows[i][1]).trim();
+    const alreadyInvited = String(rows[i][2]).trim() !== '';
+
+    if (!email || !isValidEmail_(email) || alreadyInvited) {
+      skipped++;
+      continue;
+    }
+
+    if (MailApp.getRemainingDailyQuota() < 1) {
+      remainingAfterQuota++;
+      continue;
+    }
+
+    MailApp.sendEmail(
+      email,
+      'Your Sayt Android beta invite',
+      "Sayt for Android is ready for you to test.\n\n" +
+      "Open this link on your Android phone, tap to become a tester, then " +
+      "install Sayt from Google Play:\n" + PLAY_INVITE_URL + "\n\n" +
+      "Use the same Google account on the phone that you signed up with, " +
+      "otherwise Play will not show you the test.\n\n" +
+      "It can take a few minutes after joining before the Play listing " +
+      "appears. If anything looks wrong, just reply to this email."
+    );
+
+    sheet.getRange(i + 2, 3).setValue(new Date());
+    sent++;
+  }
+
+  Logger.log('Invites sent: ' + sent);
+  Logger.log('Skipped (already invited or blank): ' + skipped);
+  if (remainingAfterQuota > 0) {
+    Logger.log('Hit the daily send limit. Still waiting: ' + remainingAfterQuota + '. Run this again tomorrow.');
+  }
 }
 
 /**
