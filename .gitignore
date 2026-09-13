@@ -8,3 +8,6 @@
 
 # Local scratch
 *.local
+
+# Apps Script kept out of the published site (Pages serves every file)
+android-beta-signup.gs
