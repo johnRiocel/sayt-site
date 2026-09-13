@@ -341,7 +341,7 @@ section.feature.alt { background: var(--surface); }
 .row.flip .copy { order: 2; }
 .row.flip .shot { order: 1; }
 
-.row .shot img {
+.shot img {
   width: 100%;
   height: auto;
   display: block;
@@ -617,3 +617,5 @@ footer.site a[aria-current="page"] { font-weight: 700; }
 .mt-s  { margin-top: 16px; }
 .mt-m  { margin-top: 28px; }
 .mt-l  { margin-top: 56px; }
+.center { text-align: center; }
+.center .ticks { text-align: left; display: inline-block; }
