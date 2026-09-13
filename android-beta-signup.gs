@@ -40,7 +40,7 @@
  */
 
 // ---- Configure these two lines ----
-const OWNER_EMAIL = 'saytapph@gmail.com'; // where sign-up notifications go
+const OWNER_EMAIL = 'saytappph@gmail.com'; // where sign-up notifications go
 const PLAY_INVITE_URL = 'https://play.google.com/apps/internaltest/4700937284727720274'; // Play Console opt-in link
 // ------------------------------------
 
